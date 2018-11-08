@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 8, 2018 1:25:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Jadwal" table="Jadwal" catalog="db165314026" optimistic-lock="version">
+        <id name="kodeJadwal" type="string">
+            <column name="kodeJadwal" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="tanggalBerangkat" type="date">
+            <column name="tanggalBerangkat" length="10" not-null="true" />
+        </property>
+        <property name="tanggalSampai" type="date">
+            <column name="tanggalSampai" length="10" not-null="true" />
+        </property>
+        <property name="jamBerangkat" type="time">
+            <column name="jamBerangkat" length="8" not-null="true" />
+        </property>
+        <property name="jamSampai" type="time">
+            <column name="jamSampai" length="8" not-null="true" />
+        </property>
+        <property name="nomorBus" type="string">
+            <column name="nomorBus" length="3" not-null="true" />
+        </property>
+        <property name="terminalAsal" type="string">
+            <column name="terminalAsal" length="15" not-null="true" />
+        </property>
+        <property name="terminalTujuan" type="string">
+            <column name="terminalTujuan" length="15" not-null="true" />
+        </property>
+        <property name="hargaTiket" type="string">
+            <column name="hargaTiket" length="6" not-null="true" />
+        </property>
+        <one-to-one name="tiket" class="pojos.Tiket"></one-to-one>
+    </class>
+</hibernate-mapping>
