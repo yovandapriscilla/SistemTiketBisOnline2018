@@ -5,14 +5,20 @@
  */
 package service;
 
+import com.google.gson.Gson;
+import helper.JadwalHelper;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import pojos.Jadwal;
 
 /**
  * REST Web Service
@@ -37,9 +43,15 @@ public class JadwalResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
+    public Response getJson() {
         //TODO return proper representation object
-        throw new UnsupportedOperationException();
+        JadwalHelper helper = new JadwalHelper();
+        List<Jadwal> list = helper.getJadwal();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return Response.status(200)
+                .entity(json)
+                .build();
     }
 
     /**
@@ -49,5 +61,20 @@ public class JadwalResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
+    }
+    
+    @POST
+    @Path("addJadwal")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addNewJadwal(String data) {
+        Gson gson = new Gson();
+        Jadwal jadwal = gson.fromJson(data, Jadwal.class);
+        JadwalHelper helper = new JadwalHelper();
+        helper.addNewJadwal(jadwal.getKodeJadwal(), jadwal.getTanggalBerangkat(), jadwal.getTanggalSampai(), 
+                jadwal.getJamBerangkat(), jadwal.getJamSampai(), jadwal.getNomorBus(), jadwal.getTerminalAsal(), 
+                jadwal.getTerminalTujuan(), jadwal.getHargaTiket());
+        return Response.status(200)
+                .entity(jadwal)
+                .build();
     }
 }
