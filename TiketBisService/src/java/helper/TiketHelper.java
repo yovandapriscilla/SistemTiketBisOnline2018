@@ -45,9 +45,9 @@ public class TiketHelper {
             Jadwal jadwal) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Tiket tiket = new Tiket(jadwal, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon, 
-                alamat, metodePembayaran, statusTiket, kodeTiket);
-        session.saveOrUpdate(jadwal);
+        Tiket tiket = new Tiket(kodeTiket, jadwal, noKursi, namaCalonPenumpang, nik, umur, email, 
+                noTelepon, alamat, metodePembayaran, statusTiket);
+        session.saveOrUpdate(tiket);
         tx.commit();
         session.close();
     }

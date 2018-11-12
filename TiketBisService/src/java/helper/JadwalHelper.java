@@ -24,7 +24,7 @@ public class JadwalHelper {
     public List<Jadwal> getJadwal() {
         List<Jadwal> result = null;
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
-        String query = "from Jadwal j";
+        String query = "from Jadwal l";
         Query q = session.createQuery(query);
         result = q.list();
         session.close();

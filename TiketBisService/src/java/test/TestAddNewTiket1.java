@@ -5,8 +5,10 @@
  */
 package test;
 
+import helper.JadwalHelper;
 import helper.TiketHelper;
 import java.text.ParseException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pojos.Jadwal;
@@ -16,6 +18,7 @@ import pojos.Jadwal;
  * @author ASUS
  */
 public class TestAddNewTiket1 {
+
     public static void main(String[] args) throws ParseException {
         try {
             String kodeTiket = "be2091829";
@@ -28,9 +31,15 @@ public class TestAddNewTiket1 {
             String alamat = "jalan.mana aja";
             String metodePembayaran = "BRI";
             String statusTiket = "Proses";
-            Jadwal jadwal = null;
+
+            JadwalHelper jadHelp = new JadwalHelper();
+            List<Jadwal> list = jadHelp.getJadwal();
+            String j = list.get(1).getKodeJadwal();
+            Jadwal jadwal = new Jadwal();
+            jadwal.setKodeJadwal(j);
+            
             TiketHelper helper = new TiketHelper();
-            helper.addNewTiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon, 
+            helper.addNewTiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon,
                     alamat, metodePembayaran, statusTiket, jadwal);
         } catch (Exception ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);
