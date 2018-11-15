@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 12, 2018 4:39:21 PM by Hibernate Tools 4.3.1
+// Generated Nov 15, 2018 12:23:20 PM by Hibernate Tools 4.3.1
 
 
 
@@ -10,7 +10,6 @@ public class Tiket  implements java.io.Serializable {
 
 
      private String kodeTiket;
-     private Jadwal jadwal;
      private String noKursi;
      private String namaCalonPenumpang;
      private int nik;
@@ -20,13 +19,13 @@ public class Tiket  implements java.io.Serializable {
      private String alamat;
      private String metodePembayaran;
      private String statusTiket;
+     private String kodeJadwal;
 
     public Tiket() {
     }
 
-    public Tiket(String kodeTiket, Jadwal jadwal, String noKursi, String namaCalonPenumpang, int nik, int umur, String email, String noTelepon, String alamat, String metodePembayaran, String statusTiket) {
+    public Tiket(String kodeTiket, String noKursi, String namaCalonPenumpang, int nik, int umur, String email, String noTelepon, String alamat, String metodePembayaran, String statusTiket, String kodeJadwal) {
        this.kodeTiket = kodeTiket;
-       this.jadwal = jadwal;
        this.noKursi = noKursi;
        this.namaCalonPenumpang = namaCalonPenumpang;
        this.nik = nik;
@@ -36,6 +35,7 @@ public class Tiket  implements java.io.Serializable {
        this.alamat = alamat;
        this.metodePembayaran = metodePembayaran;
        this.statusTiket = statusTiket;
+       this.kodeJadwal = kodeJadwal;
     }
    
     public String getKodeTiket() {
@@ -44,13 +44,6 @@ public class Tiket  implements java.io.Serializable {
     
     public void setKodeTiket(String kodeTiket) {
         this.kodeTiket = kodeTiket;
-    }
-    public Jadwal getJadwal() {
-        return this.jadwal;
-    }
-    
-    public void setJadwal(Jadwal jadwal) {
-        this.jadwal = jadwal;
     }
     public String getNoKursi() {
         return this.noKursi;
@@ -114,6 +107,13 @@ public class Tiket  implements java.io.Serializable {
     
     public void setStatusTiket(String statusTiket) {
         this.statusTiket = statusTiket;
+    }
+    public String getKodeJadwal() {
+        return this.kodeJadwal;
+    }
+    
+    public void setKodeJadwal(String kodeJadwal) {
+        this.kodeJadwal = kodeJadwal;
     }
 
 

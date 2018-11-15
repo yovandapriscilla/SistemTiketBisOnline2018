@@ -42,11 +42,10 @@ public class TiketHelper {
             String alamat,
             String metodePembayaran,
             String statusTiket,
-            Jadwal jadwal) {
+            String kodeJadwal) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Tiket tiket = new Tiket(kodeTiket, jadwal, noKursi, namaCalonPenumpang, nik, umur, email, 
-                noTelepon, alamat, metodePembayaran, statusTiket);
+        Tiket tiket = new Tiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon, alamat, metodePembayaran, statusTiket, kodeJadwal);
         session.saveOrUpdate(tiket);
         tx.commit();
         session.close();

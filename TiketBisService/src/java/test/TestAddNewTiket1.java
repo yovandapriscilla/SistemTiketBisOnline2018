@@ -21,7 +21,7 @@ public class TestAddNewTiket1 {
 
     public static void main(String[] args) throws ParseException {
         try {
-            String kodeTiket = "be2091829";
+            String kodeTiket = "be209182";
             String noKursi = "c02";
             String namaCalonPenumpang = "lupa nama";
             int nik = 21354568;
@@ -31,16 +31,15 @@ public class TestAddNewTiket1 {
             String alamat = "jalan.mana aja";
             String metodePembayaran = "BRI";
             String statusTiket = "Proses";
-
+            
             JadwalHelper jadHelp = new JadwalHelper();
             List<Jadwal> list = jadHelp.getJadwal();
             String j = list.get(1).getKodeJadwal();
-            Jadwal jadwal = new Jadwal();
-            jadwal.setKodeJadwal(j);
+            System.out.println(j);
             
             TiketHelper helper = new TiketHelper();
             helper.addNewTiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon,
-                    alamat, metodePembayaran, statusTiket, jadwal);
+                    alamat, metodePembayaran, statusTiket, j);
         } catch (Exception ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);
         }

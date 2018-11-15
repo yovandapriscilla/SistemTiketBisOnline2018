@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 12, 2018 4:39:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 15, 2018 12:23:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojos.Jadwal" table="Jadwal" catalog="db165314026" optimistic-lock="version">
         <id name="kodeJadwal" type="string">
@@ -32,11 +32,5 @@
         <property name="hargaTiket" type="string">
             <column name="hargaTiket" length="6" not-null="true" />
         </property>
-        <set name="tikets" table="Tiket" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="kodeJadwal" length="8" not-null="true" />
-            </key>
-            <one-to-many class="pojos.Tiket" />
-        </set>
     </class>
 </hibernate-mapping>

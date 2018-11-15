@@ -72,7 +72,7 @@ public class TiketResource {
         TiketHelper helper = new TiketHelper();
         helper.addNewTiket(tiket.getKodeTiket(), tiket.getNoKursi(), tiket.getNamaCalonPenumpang(), 
                 tiket.getNik(), tiket.getUmur(), tiket.getEmail(), tiket.getNoTelepon(), tiket.getAlamat(), 
-                tiket.getMetodePembayaran(), tiket.getStatusTiket(), tiket.getJadwal());
+                tiket.getMetodePembayaran(), tiket.getStatusTiket(), tiket.getKodeJadwal());
         return Response.status(200)
                 .entity(tiket)
                 .build();
