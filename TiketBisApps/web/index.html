@@ -15,40 +15,41 @@
         <!-- Navigation Bar -->
         <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
             <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Logo</b></a>
-            <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
             <a class="navbar-brand" href=formDataDiri.html style="text-decoration: none"><font color = "black">
-                Form Data Diri</font></a>
+                <p align="right">Form Data Diri &nbsp &nbsp</p></font></a>
         </div>
 
         <!-- Header -->
         <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-            <img class="w3-image" src="bus.jpg" alt="bus" width="1500" height="700">
-            <div class="w3-display-middle" style="width:65%">
-                <div class="w3-bar w3-black">
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Bus');"><i class="fa fa-car w3-margin-right"></i>Bus</button>
-                </div>
 
-                <!-- Tabs -->
-                <div id="Bus" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Tiket Bus Online</h3>
-                    <div class="w3-row-padding" style="margin:0 -16px;">
-                        <div class="w3-half">
-                            <label>Kota Asal</label>
-                            <input class="w3-input w3-border" type="text" placeholder="Departing from">
-                        </div>
-                        <div class="w3-half">
-                            <label>Kota Tujuan</label>
-                            <input class="w3-input w3-border" type="text" placeholder="Arriving at">
-                        </div>
-                        <div class ="form-group">
-                            <label for="tanggalPesan">Tanggal Pemesanan</label><br>
-                            <input type="date" placeholder="Enter Tanggal Pemesanan" id="tanggalPesan" required/>
-                        </div>
-                    </div>
-                    <p><button class="w3-button w3-dark-grey">Search</button></p>
-                </div>
-            </div>
         </header>
+        <img class="w3-image" src="bus.jpg" alt="bus" width="1500" height="700">
+        <div class="w3-display-middle" style="width:65%">
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Bus');"><i class="fa fa-car w3-margin-right"></i>Bus</button>
+            </div>
+
+            <!-- Tabs -->
+            <div id="Bus" class="w3-container w3-white w3-padding-16 myLink">
+                <h3>Tiket Bus Online</h3>
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <div class="w3-half">
+                        <label>Kota Asal</label>
+                        <input class="w3-input w3-border" type="text" name="asal" placeholder="Departing from">
+                    </div>
+                    <div class="w3-half">
+                        <label>Kota Tujuan</label>
+                        <input class="w3-input w3-border" type="text" name="tujuan" placeholder="Arriving at">
+                    </div>
+                    <div class ="w3-half"> <br>
+                        <label for="tanggalPesan">Tanggal Pemesanan</label><br>
+                        <input type="date" name="tanggal" placeholder="Enter Tanggal Pemesanan" id="tanggalPesan" required/>
+                    </div>
+                </div>
+                <p><button onclick="loadDoc()" id="myselect" class="w3-button w3-dark-grey">Search</button></p>
+            </div>
+            <p id="demo"></p>
+        </div>
 
         <!-- Page content -->
         <div class="w3-content" style="max-width:1100px;">
@@ -182,6 +183,50 @@
             }
             // Click on the first tablink on load
             document.getElementsByClassName("tablink")[0].click();
+
+
+            function loadDoc() {
+
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal";
+
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table border='1'><tr><td>";
+
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<table><tr><td>" +
+                                arr[i].terminalAsal +
+                                "</td><td>" + "- </td><td>" +
+                                arr[i].terminalTujuan +
+                                "</td></tr><tr><td>"+
+                                arr[i].tanggalBerangkat+
+                                "</td><td>"+"- </td><td>"+
+                                arr[i].tanggalSampai+
+                                "</td></tr><tr><td>"+
+                                arr[i].jamBerangkat+
+                                "</td><td>"+"- </td><td>"+
+                                arr[i].jamSampai+
+                                "</td></tr><tr><td>"+
+                                arr[i].nomorBus+
+                                "</td></tr><tr><td></td><td></td><td>"+
+                                arr[i].hargaTiket+
+                                "</td></tr><tr><td></td><td></td><td><a href='index1.html'><button type='submit'>Pesan</button></a>"+
+                                "</td></tr></table><br>";
+                    }
+                    out += "</td></tr></table>";
+                    document.getElementById("demo").innerHTML = out;
+                }
+            }
         </script>
 
     </body>
