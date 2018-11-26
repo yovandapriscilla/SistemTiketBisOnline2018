@@ -17,7 +17,7 @@ import pojos.Tiket;
 public class TestCariTiket1 {
 
     public static void main(String[] args) {
-        String kodeJadwal = "SM001";
+        String kodeJadwal = "JS015";
         TiketHelper helper = new TiketHelper();
         System.out.println(new Gson().toJson(helper.cari(kodeJadwal)));
     }

@@ -40,7 +40,7 @@ public class TestAddNewTiket1 {
 
             TiketHelper helper = new TiketHelper();
             helper.addNewTiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon, alamat,
-                    metodePembayaran, statusTiket, kodeTiket, noRekening);
+                    metodePembayaran, statusTiket, j, noRekening);
         } catch (Exception ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);
         }
