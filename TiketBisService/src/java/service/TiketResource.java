@@ -16,6 +16,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import pojos.Tiket;
@@ -39,6 +40,7 @@ public class TiketResource {
 
     /**
      * Retrieves representation of an instance of service.TiketResource
+     *
      * @return an instance of java.lang.String
      */
     @GET
@@ -56,13 +58,14 @@ public class TiketResource {
 
     /**
      * PUT method for updating or creating an instance of TiketResource
+     *
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
-    
+
     @POST
     @Path("addTiket")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -70,11 +73,19 @@ public class TiketResource {
         Gson gson = new Gson();
         Tiket tiket = gson.fromJson(data, Tiket.class);
         TiketHelper helper = new TiketHelper();
-        helper.addNewTiket(tiket.getKodeTiket(), tiket.getNoKursi(), tiket.getNamaCalonPenumpang(), 
-                tiket.getNik(), tiket.getUmur(), tiket.getEmail(), tiket.getNoTelepon(), tiket.getAlamat(), 
+        helper.addNewTiket(tiket.getKodeTiket(), tiket.getNoKursi(), tiket.getNamaCalonPenumpang(),
+                tiket.getNik(), tiket.getUmur(), tiket.getEmail(), tiket.getNoTelepon(), tiket.getAlamat(),
                 tiket.getMetodePembayaran(), tiket.getStatusTiket(), tiket.getKodeJadwal());
         return Response.status(200)
                 .entity(tiket)
                 .build();
     }
+    
+    @GET
+    @Path("cariTiket")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getJson(@QueryParam("kodeJadwal") String kodeJadwal) {
+        return new Gson().toJson(new TiketHelper().cari(kodeJadwal));
+    }
+
 }

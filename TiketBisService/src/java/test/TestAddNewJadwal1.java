@@ -19,16 +19,16 @@ import java.util.logging.Logger;
 public class TestAddNewJadwal1 {
     public static void main(String[] args) throws ParseException {
         try {
-            String kodeJadwal = "JS013";
+            String kodeJadwal = "JS015";
             SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
             SimpleDateFormat format2 = new SimpleDateFormat("H:mm:ss");
             String tglBerangkat = "20181201";
             Date date1 = format1.parse(tglBerangkat);
             String tglSampai = "20181201";
             Date date2 = format1.parse(tglSampai);
-            String jamBerangkat = "12:00:00";
+            String jamBerangkat = "10:00:00";
             Date date3 = format2.parse(jamBerangkat);
-            String jamSampai = "16:00:00";
+            String jamSampai = "13:00:00";
             Date date4 = format2.parse(jamSampai);
             String noBus = "J01";
             String terminalAsal = "Jombor";
