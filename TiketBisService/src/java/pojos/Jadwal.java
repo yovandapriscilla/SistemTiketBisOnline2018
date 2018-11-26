@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 15, 2018 12:23:20 PM by Hibernate Tools 4.3.1
+// Generated Nov 26, 2018 7:49:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,8 +13,8 @@ public class Jadwal  implements java.io.Serializable {
      private String kodeJadwal;
      private Date tanggalBerangkat;
      private Date tanggalSampai;
-     private Date jamBerangkat;
-     private Date jamSampai;
+     private String jamBerangkat;
+     private String jamSampai;
      private String nomorBus;
      private String terminalAsal;
      private String terminalTujuan;
@@ -23,7 +23,7 @@ public class Jadwal  implements java.io.Serializable {
     public Jadwal() {
     }
 
-    public Jadwal(String kodeJadwal, Date tanggalBerangkat, Date tanggalSampai, Date jamBerangkat, Date jamSampai, String nomorBus, String terminalAsal, String terminalTujuan, String hargaTiket) {
+    public Jadwal(String kodeJadwal, Date tanggalBerangkat, Date tanggalSampai, String jamBerangkat, String jamSampai, String nomorBus, String terminalAsal, String terminalTujuan, String hargaTiket) {
        this.kodeJadwal = kodeJadwal;
        this.tanggalBerangkat = tanggalBerangkat;
        this.tanggalSampai = tanggalSampai;
@@ -56,18 +56,18 @@ public class Jadwal  implements java.io.Serializable {
     public void setTanggalSampai(Date tanggalSampai) {
         this.tanggalSampai = tanggalSampai;
     }
-    public Date getJamBerangkat() {
+    public String getJamBerangkat() {
         return this.jamBerangkat;
     }
     
-    public void setJamBerangkat(Date jamBerangkat) {
+    public void setJamBerangkat(String jamBerangkat) {
         this.jamBerangkat = jamBerangkat;
     }
-    public Date getJamSampai() {
+    public String getJamSampai() {
         return this.jamSampai;
     }
     
-    public void setJamSampai(Date jamSampai) {
+    public void setJamSampai(String jamSampai) {
         this.jamSampai = jamSampai;
     }
     public String getNomorBus() {

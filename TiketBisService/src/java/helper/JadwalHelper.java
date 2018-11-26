@@ -36,15 +36,15 @@ public class JadwalHelper {
             String kodeJadwal,
             Date tanggalBerangkat,
             Date tanggalSampai,
-            Date jamBerangkat,
-            Date jamSampai,
+            String jamBerangkat,
+            String jamSampai,
             String nomorBus,
             String terminalAsal,
             String terminalTujuan,
             String hargaTiket) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Jadwal jadwal = new Jadwal(kodeJadwal, tanggalBerangkat, tanggalSampai, jamBerangkat, jamSampai,
+        Jadwal jadwal = new Jadwal(kodeJadwal, tanggalBerangkat, tanggalSampai, jamBerangkat, jamSampai, 
                 nomorBus, terminalAsal, terminalTujuan, hargaTiket);
         session.saveOrUpdate(jadwal);
         tx.commit();

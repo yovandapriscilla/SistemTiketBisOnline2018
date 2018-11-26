@@ -31,15 +31,16 @@ public class TestAddNewTiket1 {
             String alamat = "jalan.mana aja";
             String metodePembayaran = "BRI";
             String statusTiket = "Proses";
-            
+            String noRekening = "16531426";
+
             JadwalHelper jadHelp = new JadwalHelper();
             List<Jadwal> list = jadHelp.getJadwal();
-            String j = list.get(1).getKodeJadwal();
+            String j = list.get(0).getKodeJadwal();
             System.out.println(j);
-            
+
             TiketHelper helper = new TiketHelper();
-            helper.addNewTiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon,
-                    alamat, metodePembayaran, statusTiket, j);
+            helper.addNewTiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon, alamat,
+                    metodePembayaran, statusTiket, kodeTiket, noRekening);
         } catch (Exception ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);
         }

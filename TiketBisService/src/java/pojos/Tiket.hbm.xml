@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 15, 2018 12:23:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 26, 2018 7:49:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojos.Tiket" table="Tiket" catalog="db165314026" optimistic-lock="version">
         <id name="kodeTiket" type="string">
@@ -37,6 +37,9 @@
         </property>
         <property name="kodeJadwal" type="string">
             <column name="kodeJadwal" length="8" not-null="true" />
+        </property>
+        <property name="noRekening" type="string">
+            <column name="noRekening" length="10" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

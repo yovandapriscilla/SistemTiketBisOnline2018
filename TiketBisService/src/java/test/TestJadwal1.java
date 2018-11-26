@@ -15,6 +15,7 @@ import pojos.Jadwal;
  * @author ASUS
  */
 public class TestJadwal1 {
+
     public static void main(String[] args) {
         JadwalHelper helper = new JadwalHelper();
         List<Jadwal> list = helper.getJadwal();

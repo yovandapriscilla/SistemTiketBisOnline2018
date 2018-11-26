@@ -32,21 +32,14 @@ public class TiketHelper {
         return result;
     }
 
-    public void addNewTiket(
-            String kodeTiket,
-            String noKursi,
-            String namaCalonPenumpang,
-            int nik,
-            int umur,
-            String email,
-            String noTelepon,
-            String alamat,
-            String metodePembayaran,
-            String statusTiket,
-            String kodeJadwal) {
+    public void addNewTiket(String kodeTiket, String noKursi, String namaCalonPenumpang,
+            int nik, int umur, String email, String noTelepon,
+            String alamat, String metodePembayaran,
+            String statusTiket, String kodeJadwal, String noRekening) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Tiket tiket = new Tiket(kodeTiket, noKursi, namaCalonPenumpang, nik, umur, email, noTelepon, alamat, metodePembayaran, statusTiket, kodeJadwal);
+        Tiket tiket = new Tiket(kodeTiket, noKursi, namaCalonPenumpang, nik, 
+                umur, email, noTelepon, alamat, metodePembayaran, statusTiket, kodeJadwal, noRekening);
         session.saveOrUpdate(tiket);
         tx.commit();
         session.close();

@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 15, 2018 12:23:20 PM by Hibernate Tools 4.3.1
+// Generated Nov 26, 2018 7:49:42 PM by Hibernate Tools 4.3.1
 
 
 
@@ -20,11 +20,12 @@ public class Tiket  implements java.io.Serializable {
      private String metodePembayaran;
      private String statusTiket;
      private String kodeJadwal;
+     private String noRekening;
 
     public Tiket() {
     }
 
-    public Tiket(String kodeTiket, String noKursi, String namaCalonPenumpang, int nik, int umur, String email, String noTelepon, String alamat, String metodePembayaran, String statusTiket, String kodeJadwal) {
+    public Tiket(String kodeTiket, String noKursi, String namaCalonPenumpang, int nik, int umur, String email, String noTelepon, String alamat, String metodePembayaran, String statusTiket, String kodeJadwal, String noRekening) {
        this.kodeTiket = kodeTiket;
        this.noKursi = noKursi;
        this.namaCalonPenumpang = namaCalonPenumpang;
@@ -36,6 +37,7 @@ public class Tiket  implements java.io.Serializable {
        this.metodePembayaran = metodePembayaran;
        this.statusTiket = statusTiket;
        this.kodeJadwal = kodeJadwal;
+       this.noRekening = noRekening;
     }
    
     public String getKodeTiket() {
@@ -114,6 +116,13 @@ public class Tiket  implements java.io.Serializable {
     
     public void setKodeJadwal(String kodeJadwal) {
         this.kodeJadwal = kodeJadwal;
+    }
+    public String getNoRekening() {
+        return this.noRekening;
+    }
+    
+    public void setNoRekening(String noRekening) {
+        this.noRekening = noRekening;
     }
 
 

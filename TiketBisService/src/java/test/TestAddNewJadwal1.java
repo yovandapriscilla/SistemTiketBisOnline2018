@@ -17,26 +17,23 @@ import java.util.logging.Logger;
  * @author ASUS
  */
 public class TestAddNewJadwal1 {
+
     public static void main(String[] args) throws ParseException {
         try {
             String kodeJadwal = "JS015";
             SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
-            SimpleDateFormat format2 = new SimpleDateFormat("H:mm:ss");
             String tglBerangkat = "20181201";
             Date date1 = format1.parse(tglBerangkat);
             String tglSampai = "20181201";
             Date date2 = format1.parse(tglSampai);
-            String jamBerangkat = "10:00:00";
-            Date date3 = format2.parse(jamBerangkat);
-            String jamSampai = "13:00:00";
-            Date date4 = format2.parse(jamSampai);
+            String jamBerangkat = "10:00";
+            String jamSampai = "13:00";
             String noBus = "J01";
             String terminalAsal = "Jombor";
             String terminalTujuan = "Solo";
             String hargaTiket = "35000";
             JadwalHelper helper = new JadwalHelper();
-            helper.addNewJadwal(kodeJadwal, date1, date2, date3, date4, noBus, terminalAsal, 
-                    terminalTujuan, hargaTiket);
+            helper.addNewJadwal(kodeJadwal, date1, date2, jamBerangkat, jamSampai, noBus, terminalAsal, terminalTujuan, hargaTiket);
         } catch (ParseException ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);
         }

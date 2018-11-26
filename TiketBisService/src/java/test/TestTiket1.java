@@ -15,6 +15,7 @@ import pojos.Tiket;
  * @author ASUS
  */
 public class TestTiket1 {
+
     public static void main(String[] args) {
         TiketHelper helper = new TiketHelper();
         List<Tiket> list = helper.getTiket();
