@@ -7,6 +7,8 @@ package service;
 
 import com.google.gson.Gson;
 import helper.JadwalHelper;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -85,10 +87,18 @@ public class JadwalResource {
     @GET
     @Path("cariJadwal")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson(@QueryParam("terminalAsal") String terminalAsal,
+    public Response getJson(@QueryParam("terminalAsal") String terminalAsal,
             @QueryParam("terminalTujuan") String terminalTujuan,
-            @QueryParam("tglBerangkat") Date tglBerangkat) {
-
-        return new Gson().toJson(new JadwalHelper().cari(terminalAsal, terminalTujuan, tglBerangkat));
+            @QueryParam("tglBerangkat") String tglBerangkat) throws ParseException {
+        JadwalHelper helper = new JadwalHelper();
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        Date date;
+        date = format.parse(tglBerangkat);
+        List<Jadwal> list = helper.cari(terminalAsal, terminalTujuan, date);
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return Response.status(200)
+                .entity(json)
+                .build();
     }
 }
