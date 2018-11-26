@@ -18,9 +18,10 @@ import util.TiketBisHibernateUtil;
  * @author ASUS
  */
 public class JadwalHelper {
+
     public JadwalHelper() {
     }
-    
+
     public List<Jadwal> getJadwal() {
         List<Jadwal> result = null;
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
@@ -30,7 +31,7 @@ public class JadwalHelper {
         session.close();
         return result;
     }
-    
+
     public void addNewJadwal(
             String kodeJadwal,
             Date tanggalBerangkat,
@@ -43,10 +44,31 @@ public class JadwalHelper {
             String hargaTiket) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Jadwal jadwal = new Jadwal(kodeJadwal, tanggalBerangkat, tanggalSampai, jamBerangkat, jamSampai, 
+        Jadwal jadwal = new Jadwal(kodeJadwal, tanggalBerangkat, tanggalSampai, jamBerangkat, jamSampai,
                 nomorBus, terminalAsal, terminalTujuan, hargaTiket);
         session.saveOrUpdate(jadwal);
         tx.commit();
         session.close();
+    }
+
+    public List<Jadwal> cari(
+            String terminalAsal,
+            String terminalTujuan,
+            Date tanggalBerangkat) {
+        Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String query = "from Jadwal j where j.terminalAsal=:terminalAsal AND j.terminalTujuan=:terminalTujuan AND j.tanggalBerangkat=:tanggalBerangkat";
+        Query q = session.createQuery(query);
+        q.setParameter("terminalAsal", terminalAsal);
+        q.setParameter("terminalTujuan", terminalTujuan);
+        q.setParameter("tanggalBerangkat", tanggalBerangkat);
+        List<Jadwal> list = q.list();
+        tx.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
     }
 }
