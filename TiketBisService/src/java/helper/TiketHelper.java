@@ -18,9 +18,10 @@ import util.TiketBisHibernateUtil;
  * @author ASUS
  */
 public class TiketHelper {
+
     public TiketHelper() {
     }
-    
+
     public List<Tiket> getTiket() {
         List<Tiket> result = null;
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
@@ -30,7 +31,7 @@ public class TiketHelper {
         session.close();
         return result;
     }
-    
+
     public void addNewTiket(
             String kodeTiket,
             String noKursi,
@@ -49,5 +50,22 @@ public class TiketHelper {
         session.saveOrUpdate(tiket);
         tx.commit();
         session.close();
+    }
+
+    public List<Tiket> cari(
+            String kodeJadwal) {
+        Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String query = "from Tiket t where t.kodeJadwal=:kodeJadwal";
+        Query q = session.createQuery(query);
+        q.setParameter("kodeJadwal", kodeJadwal);
+        List<Tiket> list = q.list();
+        tx.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
     }
 }

@@ -22,9 +22,9 @@ public class TestCariJadwal1 {
     public static void main(String[] args) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-            String tglLahir = "20181201";
+            String tglBerangkat = "20181201";
             Date date;
-            date = format.parse(tglLahir);
+            date = format.parse(tglBerangkat);
             String terminalAsal = "Jombor";
             String terminalTujuan = "Solo";
             JadwalHelper helper = new JadwalHelper();
