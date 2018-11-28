@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <title>Tiket Bus Online</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+        .myLink {display: none}
+    </style>
+    <body class="w3-light-grey">
+
+        <!-- Navigation Bar -->
+        <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+            <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Logo</b></a>
+            <a class="navbar-brand" href=daftarJadwal.html style="text-decoration: none"><font color = "black">
+                <p align="right">Daftar Jadwal &nbsp &nbsp</p></font></a>
+        </div>
+
+        <!-- Header -->
+        <header>
+
+        </header>
+<div>
+        <img class="w3-image" src="2.jpg" alt="bus" width="1500" height="700">
+        <div class="w3-display-middle" style="width:65%">
+            <form onsubmit="return make_json(this);" style="border:1px solid #ccc" method="POST">
+                <center><table>
+                        <tr>
+                            <td>Kode Jadwal</td>
+                            <td><input type="text" placeholder="Enter Kode Jadwal" id="kodeJadwal" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Berangkat</td>
+                            <td> <input type="date" placeholder="Enter Tanggal Berangkat" id="tanggalBerangkat" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Sampai</td>
+                            <td><input type="date" placeholder="Enter Tanggal Sampai" id="tanggalSampai" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Jam Berangkat</td>
+                            <td><input type="text" placeholder="Enter Jam Berangkat" id="jamBerangkat" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Jam Sampai</td>
+                            <td><input type="text" placeholder="Enter Jam Sampai" id="jamSampai" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Nomor Bis</td>
+                            <td><input type="text" placeholder="Enter Nomor Bis" id="nomorBus" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Terminal Asal</td>
+                            <td><input type="text" placeholder="Enter Terminal Asal" id="terminalAsal" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Terminal Tujuan</td>
+                            <td><input type="text" placeholder="Enter Terminal Tujuan" id="terminalTujuan" size="40"></td>
+                        </tr>
+                        <tr>
+                            <td>Harga Tiket</td>
+                            <td><input type="text" placeholder="Enter Harga Tiket" id="hargaTiket" size="40"></td>
+                        </tr><br>
+                        <tr>
+                            <td> </td>
+                            <td><p align="right"><button id="save" type="submit" class="signup">Simpan</button></p></td>
+                        </tr>
+                    </table>
+                </center>
+
+            </form>
+            <pre id="berhasil">
+            </pre>
+        </div>
+
+        <!-- Page content -->
+        <div class="w3-content" style="max-width:1100px;">
+
+            <!-- Good offers -->
+            <div class="w3-container w3-margin-top">
+                <h3>Bus Kami</h3>
+            </div>
+            <div class="w3-row-padding w3-text-white w3-large">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <img src="bus_1.jpg" alt="Cinque Terre" style="width:100%">
+                        <span class="w3-display-bottomleft w3-padding"></span>
+                    </div>
+                </div>
+                <div class="w3-half">
+                    <div class="w3-row-padding" style="margin:0 -16px">
+                        <div class="w3-half w3-margin-bottom">
+                            <div class="w3-display-container">
+                                <img src="bus_2.jpg" alt="New York" style="width:100%">
+                                <span class="w3-display-bottomleft w3-padding"></span>
+                            </div>
+                        </div>
+                        <div class="w3-half w3-margin-bottom">
+                            <div class="w3-display-container">
+                                <img src="bus_3.png" alt="San Francisco" style="width:100%">
+                                <span class="w3-display-bottomleft w3-padding"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="w3-container">
+                <h2>Contact</h2>
+                <p>Let us book your next trip!</p>
+                <i class="fa fa-map-marker" style="width:30px"></i> Yogyakarta<br>
+                <i class="fa fa-phone" style="width:30px"></i> Phone: 087775612093<br>
+                <i class="fa fa-envelope" style="width:30px"> </i> Email: blackbus@gmail.com<br>
+                <form action="/action_page.php" target="_blank">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+                    <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+                </form>
+            </div>
+
+            <!-- End page content -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+            <h5>Find Us On</h5>
+            <div class="w3-xlarge w3-padding-16">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Black Bus</a></p>
+        </footer>
+
+        <script>
+            function make_json(form) {
+                var json = {
+                    "kodeJadwal": form.kodeJadwal.value,
+                    "tanggalBerangkat": form.tanggalBerangkat.value,
+                    "tanggalSampai": form.tanggalSampai.value,
+                    "jamBerangkat": form.jamBerangkat.value,
+                    "jamSampai": form.jamSampai.value,
+                    "nomorBus": form.nomorBus.value,
+                    "terminalAsal": form.terminalAsal.value,
+                    "terminalTujuan": form.terminalTujuan.value,
+                    "hargaTiket": form.hargaTiket.value
+                };
+                var html = JSON.stringify(json, 0, 100);
+
+                var Url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/addJadwal";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);
+                document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
+                return false;
+            }
+        </script>
+</div>
+    </body>
+</html>
