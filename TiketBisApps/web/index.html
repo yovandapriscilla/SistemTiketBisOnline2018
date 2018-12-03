@@ -138,7 +138,9 @@
             function loadDoc() {
 
                 var xmlhttp = new XMLHttpRequest();
-                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal?terminalAsal=jombor and terminalTujuan=solo and tanggalBerangkat=20180712";
+                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal?terminalAsal="+asal.value+
+                        " AND terminalTujuan="+tujuan.value+
+                        " AND tanggalBerangkat="+tanggal.value;
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
