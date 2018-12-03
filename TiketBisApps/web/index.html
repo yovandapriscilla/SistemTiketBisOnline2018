@@ -35,15 +35,15 @@
                 <div class="w3-row-padding" style="margin:0 -16px;">
                     <div class="w3-half">
                         <label>Kota Asal</label>
-                        <input class="w3-input w3-border" type="text" name="asal" placeholder="Departing from">
+                        <input class="w3-input w3-border" type="text" id="asal" placeholder="Departing from">
                     </div>
                     <div class="w3-half">
                         <label>Kota Tujuan</label>
-                        <input class="w3-input w3-border" type="text" name="tujuan" placeholder="Arriving at">
+                        <input class="w3-input w3-border" type="text" id="tujuan" placeholder="Arriving at">
                     </div>
                     <div class ="w3-half"> <br>
                         <label for="tanggalPesan">Tanggal Pemesanan</label><br>
-                        <input type="date" name="tanggal" placeholder="Enter Tanggal Pemesanan" id="tanggalPesan" required/>
+                        <input type="date" id="tanggal" placeholder="Enter Tanggal Pemesanan" required/>
                     </div>
                 </div>
                 <p><button onclick="loadDoc()" id="myselect" class="w3-button w3-dark-grey">Search</button></p>
@@ -138,7 +138,7 @@
             function loadDoc() {
 
                 var xmlhttp = new XMLHttpRequest();
-                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal";
+                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal?terminalAsal=jombor and terminalTujuan=solo and tanggalBerangkat=20180712";
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
