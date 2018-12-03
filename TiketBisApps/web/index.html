@@ -47,10 +47,10 @@
                     </div>
                 </div>
                 <p><button onclick="loadDoc()" id="myselect" class="w3-button w3-dark-grey">Search</button></p>
-            
-        </div>
+
             </div>
-            <p id="demo"></p>
+        </div>
+        <p id="demo"></p>
 
         <!-- Page content -->
         <div class="w3-content" style="max-width:1100px;">
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
                 </div>
             </div>
 
@@ -138,9 +138,9 @@
             function loadDoc() {
 
                 var xmlhttp = new XMLHttpRequest();
-                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal?terminalAsal="+asal.value+
-                        " AND terminalTujuan="+tujuan.value+
-                        " AND tanggalBerangkat="+tanggal.value;
+                var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal?kotaAsal=" + asal.value +
+                        " AND kotaTujuan=" + tujuan.value +
+                        " AND tanggalBerangkat=" + tanggal.value;
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -156,7 +156,7 @@
                     var out = "<table border='1'><tr><td>";
 
                     for (i = 0; i < arr.length; i++) {
-                        out += "<table width='800px' rules='rows'><tr><th width='30px'></th><th width='20px'></th><th width='200px'></th><th width='100px'></th></tr>"+"<tr><td>" +
+                        out += "<table width='800px' rules='rows'><tr><th width='30px'></th><th width='20px'></th><th width='200px'></th><th width='100px'></th></tr>" + "<tr><td>" +
                                 arr[i].terminalAsal +
                                 "</td><td>" + "- </td><td>" +
                                 arr[i].terminalTujuan +
