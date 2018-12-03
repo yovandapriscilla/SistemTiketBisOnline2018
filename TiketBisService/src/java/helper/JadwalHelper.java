@@ -41,26 +41,28 @@ public class JadwalHelper {
             String nomorBus,
             String terminalAsal,
             String terminalTujuan,
-            String hargaTiket) {
+            String hargaTiket,
+            String kotaAsal,
+            String kotaTujuan) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Jadwal jadwal = new Jadwal(kodeJadwal, tanggalBerangkat, tanggalSampai, jamBerangkat, jamSampai, 
-                nomorBus, terminalAsal, terminalTujuan, hargaTiket);
+        Jadwal jadwal = new Jadwal(kodeJadwal, tanggalBerangkat, tanggalSampai, jamBerangkat, jamSampai, nomorBus, 
+                terminalAsal, terminalTujuan, hargaTiket, kotaAsal, kotaTujuan);
         session.saveOrUpdate(jadwal);
         tx.commit();
         session.close();
     }
 
     public List<Jadwal> cari(
-            String terminalAsal,
-            String terminalTujuan,
+            String kotaAsal,
+            String kotaTujuan,
             Date tanggalBerangkat) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        String query = "from Jadwal j where j.terminalAsal=:terminalAsal AND j.terminalTujuan=:terminalTujuan AND j.tanggalBerangkat=:tanggalBerangkat";
+        String query = "from Jadwal j where j.kotaAsal=:kotaAsal AND j.kotaTujuan=:kotaTujuan AND j.tanggalBerangkat=:tanggalBerangkat";
         Query q = session.createQuery(query);
-        q.setParameter("terminalAsal", terminalAsal);
-        q.setParameter("terminalTujuan", terminalTujuan);
+        q.setParameter("kotaAsal", kotaAsal);
+        q.setParameter("kotaTujuan", kotaTujuan);
         q.setParameter("tanggalBerangkat", tanggalBerangkat);
         List<Jadwal> list = q.list();
         tx.commit();

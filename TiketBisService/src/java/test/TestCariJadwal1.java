@@ -25,10 +25,10 @@ public class TestCariJadwal1 {
             String tglBerangkat = "20181201";
             Date date;
             date = format.parse(tglBerangkat);
-            String terminalAsal = "Jombor";
-            String terminalTujuan = "Solo";
+            String kotaAsal = "Jogjakarta";
+            String kotaTujuan = "Solo";
             JadwalHelper helper = new JadwalHelper();
-            System.out.println(new Gson().toJson(helper.cari(terminalAsal, terminalTujuan, date)));
+            System.out.println(new Gson().toJson(helper.cari(kotaAsal, kotaTujuan, date)));
         } catch (ParseException ex) {
             Logger.getLogger(TestCariJadwal1.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -20,20 +20,23 @@ public class TestAddNewJadwal1 {
 
     public static void main(String[] args) throws ParseException {
         try {
-            String kodeJadwal = "JS015";
+            String kodeJadwal = "GS003";
             SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
             String tglBerangkat = "20181201";
             Date date1 = format1.parse(tglBerangkat);
             String tglSampai = "20181201";
             Date date2 = format1.parse(tglSampai);
-            String jamBerangkat = "10:00";
+            String jamBerangkat = "09:00";
             String jamSampai = "13:00";
-            String noBus = "J01";
-            String terminalAsal = "Jombor";
+            String noBus = "G01";
+            String terminalAsal = "Giwangan";
             String terminalTujuan = "Solo";
             String hargaTiket = "35000";
+            String kotaAsal = "Jogjakarta";
+            String kotaTujuan = "Solo";
             JadwalHelper helper = new JadwalHelper();
-            helper.addNewJadwal(kodeJadwal, date1, date2, jamBerangkat, jamSampai, noBus, terminalAsal, terminalTujuan, hargaTiket);
+            helper.addNewJadwal(kodeJadwal, date2, date2, jamBerangkat, jamSampai, noBus, 
+                    terminalAsal, terminalTujuan, hargaTiket, kotaAsal, kotaTujuan);
         } catch (ParseException ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 26, 2018 7:49:42 PM by Hibernate Tools 4.3.1
+// Generated Dec 3, 2018 4:04:00 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -19,11 +19,13 @@ public class Jadwal  implements java.io.Serializable {
      private String terminalAsal;
      private String terminalTujuan;
      private String hargaTiket;
+     private String kotaAsal;
+     private String kotaTujuan;
 
     public Jadwal() {
     }
 
-    public Jadwal(String kodeJadwal, Date tanggalBerangkat, Date tanggalSampai, String jamBerangkat, String jamSampai, String nomorBus, String terminalAsal, String terminalTujuan, String hargaTiket) {
+    public Jadwal(String kodeJadwal, Date tanggalBerangkat, Date tanggalSampai, String jamBerangkat, String jamSampai, String nomorBus, String terminalAsal, String terminalTujuan, String hargaTiket, String kotaAsal, String kotaTujuan) {
        this.kodeJadwal = kodeJadwal;
        this.tanggalBerangkat = tanggalBerangkat;
        this.tanggalSampai = tanggalSampai;
@@ -33,6 +35,8 @@ public class Jadwal  implements java.io.Serializable {
        this.terminalAsal = terminalAsal;
        this.terminalTujuan = terminalTujuan;
        this.hargaTiket = hargaTiket;
+       this.kotaAsal = kotaAsal;
+       this.kotaTujuan = kotaTujuan;
     }
    
     public String getKodeJadwal() {
@@ -97,6 +101,20 @@ public class Jadwal  implements java.io.Serializable {
     
     public void setHargaTiket(String hargaTiket) {
         this.hargaTiket = hargaTiket;
+    }
+    public String getKotaAsal() {
+        return this.kotaAsal;
+    }
+    
+    public void setKotaAsal(String kotaAsal) {
+        this.kotaAsal = kotaAsal;
+    }
+    public String getKotaTujuan() {
+        return this.kotaTujuan;
+    }
+    
+    public void setKotaTujuan(String kotaTujuan) {
+        this.kotaTujuan = kotaTujuan;
     }
 
 

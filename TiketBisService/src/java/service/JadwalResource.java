@@ -76,9 +76,9 @@ public class JadwalResource {
         Gson gson = new Gson();
         Jadwal jadwal = gson.fromJson(data, Jadwal.class);
         JadwalHelper helper = new JadwalHelper();
-        helper.addNewJadwal(jadwal.getKodeJadwal(), jadwal.getTanggalBerangkat(), jadwal.getTanggalSampai(),
-                jadwal.getJamBerangkat(), jadwal.getJamSampai(), jadwal.getNomorBus(), jadwal.getTerminalAsal(),
-                jadwal.getTerminalTujuan(), jadwal.getHargaTiket());
+        helper.addNewJadwal(jadwal.getKodeJadwal(), jadwal.getTanggalBerangkat(), jadwal.getTanggalSampai(), 
+                jadwal.getJamBerangkat(), jadwal.getJamSampai(), jadwal.getNomorBus(), jadwal.getTerminalAsal(), 
+                jadwal.getTerminalTujuan(), jadwal.getHargaTiket(), jadwal.getKotaAsal(), jadwal.getKotaTujuan());
         return Response.status(200)
                 .entity(jadwal)
                 .build();
@@ -87,14 +87,14 @@ public class JadwalResource {
     @GET
     @Path("cariJadwal")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson(@QueryParam("terminalAsal") String terminalAsal,
-            @QueryParam("terminalTujuan") String terminalTujuan,
+    public Response getJson(@QueryParam("kotaAsal") String kotaAsal,
+            @QueryParam("kotaTujuan") String kotaTujuan,
             @QueryParam("tglBerangkat") String tglBerangkat) throws ParseException {
         JadwalHelper helper = new JadwalHelper();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         Date date;
         date = format.parse(tglBerangkat);
-        List<Jadwal> list = helper.cari(terminalAsal, terminalTujuan, date);
+        List<Jadwal> list = helper.cari(kotaAsal, kotaTujuan, date);
         Gson gson = new Gson();
         String json = gson.toJson(list);
         return Response.status(200)
