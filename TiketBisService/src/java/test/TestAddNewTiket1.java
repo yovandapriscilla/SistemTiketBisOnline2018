@@ -21,17 +21,17 @@ public class TestAddNewTiket1 {
 
     public static void main(String[] args) throws ParseException {
         try {
-            String kodeTiket = "be209182";
-            String noKursi = "c02";
-            String namaCalonPenumpang = "lupa nama";
-            int nik = 21354568;
-            int umur = 20;
-            String email = "diasiapa@gmail.com";
-            String noTelepon = "0813245687";
-            String alamat = "jalan.mana aja";
-            String metodePembayaran = "BRI";
+            String kodeTiket = "FA205652";
+            String noKursi = "D01";
+            String namaCalonPenumpang = "Dia aja";
+            int nik = 1154568;
+            int umur = 22;
+            String email = "dia5@gmail.com";
+            String noTelepon = "0821245687";
+            String alamat = "jalan aja";
+            String metodePembayaran = "BCA";
             String statusTiket = "Proses";
-            String noRekening = "16531426";
+            String noRekening = "165314226";
 
             JadwalHelper jadHelp = new JadwalHelper();
             List<Jadwal> list = jadHelp.getJadwal();
