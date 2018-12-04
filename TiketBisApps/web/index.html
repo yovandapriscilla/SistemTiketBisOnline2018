@@ -43,7 +43,7 @@
                     </div>
                     <div class ="w3-half"> <br>
                         <label for="tanggalPesan">Tanggal Pemesanan</label><br>
-                        <input type="date" id="tanggal" placeholder="Enter Tanggal Pemesanan" required/>
+                        <input type="text" id="tanggal" placeholder="Enter Tanggal Pemesanan" required/>
                     </div>
                 </div>
                 <p><button onclick="loadDoc()" id="myselect" class="w3-button w3-dark-grey">Search</button></p>
@@ -139,16 +139,16 @@
 
                 var xmlhttp = new XMLHttpRequest();
                 var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal?kotaAsal=" + asal.value +
-                        " AND kotaTujuan=" + tujuan.value +
-                        " AND tanggalBerangkat=" + tanggal.value;
-
+                        "&kotaTujuan=" + tujuan.value +
+                        "&tglBerangkat=" + tanggal.value;
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         myFunction(this.responseText);
                     }
                 }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
+
 
                 function myFunction(response) {
                     var arr = JSON.parse(response);
