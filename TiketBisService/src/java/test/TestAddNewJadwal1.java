@@ -35,7 +35,7 @@ public class TestAddNewJadwal1 {
             String kotaAsal = "Jogjakarta";
             String kotaTujuan = "Solo";
             JadwalHelper helper = new JadwalHelper();
-            helper.addNewJadwal(kodeJadwal, date2, date2, jamBerangkat, jamSampai, noBus, 
+            helper.addNewJadwal(kodeJadwal, date1, date2, jamBerangkat, jamSampai, noBus, 
                     terminalAsal, terminalTujuan, hargaTiket, kotaAsal, kotaTujuan);
         } catch (ParseException ex) {
             Logger.getLogger(TestAddNewJadwal1.class.getName()).log(Level.SEVERE, null, ex);

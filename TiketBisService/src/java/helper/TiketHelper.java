@@ -33,7 +33,7 @@ public class TiketHelper {
     }
 
     public void addNewTiket(String kodeTiket, String noKursi, String namaCalonPenumpang,
-            int nik, int umur, String email, String noTelepon,
+            String nik, String umur, String email, String noTelepon,
             String alamat, String metodePembayaran,
             String statusTiket, String kodeJadwal, String noRekening) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();

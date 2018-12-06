@@ -73,9 +73,9 @@ public class TiketResource {
         Gson gson = new Gson();
         Tiket tiket = gson.fromJson(data, Tiket.class);
         TiketHelper helper = new TiketHelper();
-        helper.addNewTiket(tiket.getKodeTiket(), tiket.getNoKursi(), tiket.getNamaCalonPenumpang(),
-                tiket.getNik(), tiket.getUmur(), tiket.getEmail(), tiket.getNoTelepon(), tiket.getAlamat(),
-                tiket.getMetodePembayaran(), tiket.getStatusTiket(), tiket.getKodeJadwal(), tiket.getNoRekening());
+        helper.addNewTiket(tiket.getKodeTiket(), tiket.getNoKursi(), tiket.getNamaCalonPenumpang(), tiket.getNik(), tiket.getUmur(),
+                tiket.getEmail(), tiket.getNoTelepon(), tiket.getAlamat(), tiket.getMetodePembayaran(), 
+                tiket.getStatusTiket(), tiket.getMetodePembayaran(), tiket.getNoRekening());
         return Response.status(200)
                 .entity(tiket)
                 .build();

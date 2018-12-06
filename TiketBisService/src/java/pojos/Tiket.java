@@ -1,5 +1,5 @@
 package pojos;
-// Generated Dec 3, 2018 4:04:00 PM by Hibernate Tools 4.3.1
+// Generated Dec 6, 2018 5:32:02 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,8 +12,8 @@ public class Tiket  implements java.io.Serializable {
      private String kodeTiket;
      private String noKursi;
      private String namaCalonPenumpang;
-     private int nik;
-     private int umur;
+     private String nik;
+     private String umur;
      private String email;
      private String noTelepon;
      private String alamat;
@@ -25,7 +25,7 @@ public class Tiket  implements java.io.Serializable {
     public Tiket() {
     }
 
-    public Tiket(String kodeTiket, String noKursi, String namaCalonPenumpang, int nik, int umur, String email, String noTelepon, String alamat, String metodePembayaran, String statusTiket, String kodeJadwal, String noRekening) {
+    public Tiket(String kodeTiket, String noKursi, String namaCalonPenumpang, String nik, String umur, String email, String noTelepon, String alamat, String metodePembayaran, String statusTiket, String kodeJadwal, String noRekening) {
        this.kodeTiket = kodeTiket;
        this.noKursi = noKursi;
        this.namaCalonPenumpang = namaCalonPenumpang;
@@ -61,18 +61,18 @@ public class Tiket  implements java.io.Serializable {
     public void setNamaCalonPenumpang(String namaCalonPenumpang) {
         this.namaCalonPenumpang = namaCalonPenumpang;
     }
-    public int getNik() {
+    public String getNik() {
         return this.nik;
     }
     
-    public void setNik(int nik) {
+    public void setNik(String nik) {
         this.nik = nik;
     }
-    public int getUmur() {
+    public String getUmur() {
         return this.umur;
     }
     
-    public void setUmur(int umur) {
+    public void setUmur(String umur) {
         this.umur = umur;
     }
     public String getEmail() {
