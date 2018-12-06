@@ -15,7 +15,7 @@
         body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
         .myLink {display: none}
     </style>
-    <body class="w3-light-grey">
+    <body class="w3-light-grey" onload="checkCookie()">
 
         <!-- Navigation Bar -->
 
@@ -26,6 +26,11 @@
         </header>
         <form onsubmit="make_json(this)" method="POST">
             <table>
+                <tr>
+                    <td>Kode Jadwal</td>
+                    <td><input type="text" id="jadwal" disabled></td>
+                        
+                </tr>
                 <tr><td>Nomor Kursi</td><td>
                         <select id="kursi" onchange="cekKursi(this)">
                             <option style="color: black" label="">--pilih kursi--</option>
@@ -63,6 +68,7 @@
                 </tr>
                 <tr><td>Metode Pembayaran</td><td>
                         <select id="rekening" onchange="cekRek(this)">
+                            <option style="color: black" value="" ></option>
                             <option style="color: black" value="BCA" >BCA</option>
                             <option style="color: black" value="MANDIRI">MANDIRI</option>
                             <option style="color: black" value="BNI">BNI</option>
@@ -178,8 +184,10 @@
 
             } else if (rekening.value == "MANDIRI") {
                 document.getElementById("noRek").value = 345678901;
-
+            } else if(rekening.value == ""){
+                alert("pilih metode pembayaran");
             }
+            
         }
         
         function getCookie(cname) {
@@ -201,7 +209,7 @@
             function checkCookie() {
                 var username = getCookie("username");
                 if (username != "") {
-                    document.getElementById("demo").value= username;
+                    document.getElementById("jadwal").value= username;
                 } 
             }
             
@@ -212,7 +220,8 @@
 
                         xmlhttp.onreadystatechange = function () {
                             if (this.readyState == 4 && this.status == 200) {
-                                banding(this.responseText, kursi.value);
+                                alert("masuk");
+//                                banding(this.responseText, kursi.value);
                             }
                         }
                         xmlhttp.open("GET", url, true);
@@ -227,8 +236,6 @@
                                     alert("kursi sudah punya orang");
                                 }
                             }
-                            out += "</table>";
-                            document.getElementById("demo").innerHTML = out;
                         }
                     
             }
