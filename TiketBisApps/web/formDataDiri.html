@@ -18,11 +18,7 @@
     <body class="w3-light-grey">
 
         <!-- Navigation Bar -->
-        <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
 
-            <a class="navbar-brand" href="daftarJadwal.html" style="text-decoration: none"><font color = "black">
-                <p align="right">Daftar Jadwal &nbsp &nbsp</p></font></a>
-        </div>
 
         <!-- Header -->
         <header class="w3-display-container w3-content w3-hide-small" style="max-width:1400px">
@@ -43,7 +39,7 @@
                 <h1> Data Diri </h1>
                 <tr>
                     <td>Nama Penumpang</td>
-                    <td><input type="text" placeholder="Enter Nama Penumpang" id="namaPenumpang" size="40" required></td>
+                    <td><input type="text" placeholder="Enter Nama Penumpang" id="namaCalonPenumpang" size="40" required></td>
                 </tr>
                 <tr>
                     <td>Umur</td>
@@ -66,12 +62,16 @@
                     <td><input type="text" placeholder="Enter Alamat" id="alamat" size="40" required></td>
                 </tr>
                 <tr><td>Metode Pembayaran</td><td>
-                        <select id="rekening" onchange="rek(this)">
-                            <option style="color: black" value="123456789">BCA</option>
-                            <option style="color: black" value="234567890">MANDIRI</option>
-                            <option style="color: black" value="345678901">BNI</option>
+                        <select id="rekening" onchange="cekRek(this)">
+                            <option style="color: black" value="BCA" >BCA</option>
+                            <option style="color: black" value="MANDIRI">MANDIRI</option>
+                            <option style="color: black" value="BNI">BNI</option>
                         </select>
                     </td></tr>
+                <tr>
+                    <td>Nomor Rekening</td>
+                    <td><input type="text" id="noRek" disabled></td>
+                </tr>
                 <br>
                 <tr>
                     <td> </td>
@@ -150,18 +150,16 @@
     <script>
         function make_json(form) {
             var json = {
-                "kodeJadwal": form.kodeJadwal.value,
-                "tanggalBerangkat": form.tanggalBerangkat.value,
-                "tanggalSampai": form.tanggalSampai.value,
-                "jamBerangkat": form.jamBerangkat.value,
-                "jamSampai": form.jamSampai.value,
-                "nomorBus": form.nomorBus.value,
-                "terminalAsal": form.terminalAsal.value,
-                "terminalTujuan": form.terminalTujuan.value,
-                "hargaTiket": form.hargaTiket.value
+                "noKursi": form.kursi.value,
+                "namaCalonPenumpang": form.namaCalonPenumpang.value,
+                "umur": form.umur.value,
+                "email": form.email.value,
+                "nik": form.nik.value,
+                "alamat": form.alamat.value,
+                "metodePembayaran": form.rekening.value,
+                "noRekening": form.rekening.value
             };
             var html = JSON.stringify(json, 0, 100);
-
             var Url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/addJadwal";
             var xhr = new XMLHttpRequest();
             xhr.open('POST', Url, false);
@@ -170,8 +168,18 @@
             document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
             return false;
         }
-        function rek(rekening) {
-            alert("nomor rekeningnya: " + rekening.value);
+        
+
+        function cekRek(rekening) {
+            if (rekening.value == "BCA") {
+                document.getElementById("noRek").value = 123456789;
+            } else if (rekening.value == "BNI") {
+                document.getElementById("noRek").value = 234567890;
+
+            } else if (rekening.value == "MANDIRI") {
+                document.getElementById("noRek").value = 345678901;
+
+            }
         }
     </script>
 </div>
