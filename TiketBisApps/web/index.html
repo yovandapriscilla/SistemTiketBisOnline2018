@@ -42,7 +42,7 @@
                         <input class="w3-input w3-border" type="text" id="tujuan" placeholder="Arriving at">
                     </div>
                     <div class ="w3-half"> <br>
-                        <label for="tanggalPesan">Tanggal Pemesanan</label><br>
+                        <label for="tanggalPesan">Tanggal Berangkat</label><br>
                         <input type="text" id="tanggal" placeholder="Enter Tanggal Pemesanan" required/>
                     </div>
                 </div>
@@ -182,8 +182,8 @@
             }
 
             function myFunction1(kodeJadwal) {
-                alert(kodeJadwal);
-                var myWindow = window.open("user.html", "_self");
+//                alert(kodeJadwal);
+                var myWindow = window.open("formDataDiri.html", "_self");
                 setCookie("username", kodeJadwal, 1);
             }
             function setCookie(cname, cvalue, exdays) {

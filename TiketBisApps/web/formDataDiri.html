@@ -32,7 +32,7 @@
                         
                 </tr>
                 <tr><td>Nomor Kursi</td><td>
-                        <select id="kursi" onchange="cekKursi(this)">
+                        <select id="kursi">
                             <option style="color: black" label="">--pilih kursi--</option>
                             <option style="color: black" value="1">1</option>
                             <option style="color: black" value="2">2</option>
@@ -154,8 +154,29 @@
     </footer>
 
     <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket";
+
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var arr = JSON.parse(this.responseText);
+                for(i = 0; i<arr.length; i++){
+                    if(arr[i].kodeJadwal === (jadwal.value)){
+                         var op = document.getElementById("kursi").getElementsByTagName("option");
+                        op[arr[i].noKursi].disabled = true;
+                    }
+                }
+            }
+        }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+        
+        
         function make_json(form) {
             var json = {
+                "kodeJadwal": form.jadwal.value,
                 "noKursi": form.kursi.value,
                 "namaCalonPenumpang": form.namaCalonPenumpang.value,
                 "umur": form.umur.value,
@@ -212,35 +233,8 @@
                     document.getElementById("jadwal").value= username;
                 } 
             }
-            
-            function cekKursi(kursi){
-
-                        var xmlhttp = new XMLHttpRequest();
-                        var url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket";
-
-                        xmlhttp.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                alert("masuk");
-//                                banding(this.responseText, kursi.value);
-                            }
-                        }
-                        xmlhttp.open("GET", url, true);
-                        xmlhttp.send();
-
-                        function banding(response, kursi) {
-                            var arr = JSON.parse(response);
-                            var i;
-                           
-                            for (i = 0; i < arr.length; i++) {
-                                if(kursi.value==arr[i].noKursi){
-                                    alert("kursi sudah punya orang");
-                                }
-                            }
-                        }
                     
-            }
-        
     </script>
-</div>
+
 </body>
 </html>
