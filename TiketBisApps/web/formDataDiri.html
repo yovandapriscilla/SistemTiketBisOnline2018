@@ -27,7 +27,7 @@
         <form onsubmit="make_json(this)" method="POST">
             <table>
                 <tr><td>Nomor Kursi</td><td>
-                        <select id="kursi">
+                        <select id="kursi" onchange="cekKursi(this)">
                             <option style="color: black" label="">--pilih kursi--</option>
                             <option style="color: black" value="1">1</option>
                             <option style="color: black" value="2">2</option>
@@ -181,6 +181,58 @@
 
             }
         }
+        
+        function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            function checkCookie() {
+                var username = getCookie("username");
+                if (username != "") {
+                    document.getElementById("demo").value= username;
+                } 
+            }
+            
+            function cekKursi(kursi){
+
+                        var xmlhttp = new XMLHttpRequest();
+                        var url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket";
+
+                        xmlhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                banding(this.responseText, kursi.value);
+                            }
+                        }
+                        xmlhttp.open("GET", url, true);
+                        xmlhttp.send();
+
+                        function banding(response, kursi) {
+                            var arr = JSON.parse(response);
+                            var i;
+                           
+                            for (i = 0; i < arr.length; i++) {
+                                if(kursi.value==arr[i].noKursi){
+                                    alert("kursi sudah punya orang");
+                                }
+                            }
+                            out += "</table>";
+                            document.getElementById("demo").innerHTML = out;
+                        }
+                    
+            }
+        
     </script>
 </div>
 </body>
