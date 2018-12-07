@@ -11,7 +11,7 @@
         .myLink {display: none}
 
     </style>
-    <body class="w3-light-grey">
+    <body class="w3-light-grey" onload="loadDoc(), loadDoc1()">
 
         <!-- Navigation Bar -->
         <div class="w3-bar w3-white w3-border-bottom w3-xlarge" style="margin-right: 24%">
@@ -36,68 +36,69 @@
                 <br><br><br><br><br><br>
                 <h1>Konfirmasi Tiket</h1>
                 <div class="w3-half">
+                    
                     <table>
                         <tr>
-                            <td><label for="terminalAsal">Terminal Asal</label>
-                                <input type="text" placeholder=" " id="terminalAsal" size="20" required/></td>
+                            <td><label>Terminal Asal</label>
+                                <input type="text" placeholder=" " id="terminalAsal" size="20" disabled></td>
                             <td><label for="terminalTujuan">Terminal Tujuan</label>
-                                <br><input type="text" placeholder=" " id="terminalTujuan" size="20" required/></td>
+                                <br><input type="text" placeholder=" " id="terminalTujuan" size="20" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="tanggalBerangkat">Tanggal Berangkat</label>
-                                <input type="text" placeholder=" " id="tanggalBerangkat" size="20" required/></td>
-                            <td><label for="terminalSampai">Terminal Sampai</label>
-                                <br><input type="text" placeholder=" " id="terminalTujuan" size="20" required/></td>
+                            <td><label>Tanggal Berangkat</label>
+                                <input type="text" placeholder=" " id="tanggalBerangkat" size="20" disabled></td>
+                            <td><label>tanggal Sampai</label>
+                                <br><input type="text" placeholder=" " id="tanggalSampai" size="20" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="jamBerangkat">Jam Berangkat</label>
-                                <input type="text" placeholder=" " id="jamBerangkat" size="20" required/></td>
-                            <td><label for="jamSampai">Jam Sampai</label>
-                                <br><input type="text" placeholder=" " id="jamSampai" size="20" required/></td>
+                            <td><label>Jam Berangkat</label>
+                                <input type="text" placeholder=" " id="jamBerangkat" size="20" disabled></td>
+                            <td><label>Jam Sampai</label>
+                                <br><input type="text" placeholder=" " id="jamSampai" size="20" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="nomorBus">Nomor Bus</label></td>
-                            <td> <input type="text" placeholder=" " id="nomorBus" size="40" required/></td>
+                            <td><label>Nomor Bus</label></td>
+                            <td> <input type="text" placeholder=" " id="nomorBus" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="hargaTiket">Harga Tiket</label></td>
-                            <td> <input type="text" placeholder=" " id="hargaTiket" size="40" required/></td>
+                            <td><label>Harga Tiket</label></td>
+                            <td> <input type="text" placeholder=" " id="hargaTiket" size="40" disabled></td>
                         </tr><br>
                         <tr>
-                            <td><label for="noKursi">Nomor Kursi</label></td>
-                            <td> <input type="text" placeholder=" " id="noKursi" size="40" required/></td>
+                            <td><label>Nomor Kursi</label></td>
+                            <td> <input type="text" placeholder=" " id="noKursi" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="namaCalonPenumpang">Nama Calon Penumpang</label></td>
-                            <td> <input type="text" placeholder=" " id="namaCalonPenumpang" size="40" required/></td>
+                            <td><label>Nama Calon Penumpang</label></td>
+                            <td> <input type="text" placeholder=" " id="namaCalonPenumpang" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="umur">Umur</label></td>
-                            <td><input type="text" placeholder=" " id="umur" size="40" required/></td>
+                            <td><label>Umur</label></td>
+                            <td><input type="text" placeholder=" " id="umur" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="email">Email</label></td>
-                            <td><input type="text" placeholder=" " id="email" size="40" required/></td>
+                            <td><label>Email</label></td>
+                            <td><input type="text" placeholder=" " id="email" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="noTelepon">No.Telpon</label></td>
-                            <td><input type="text" placeholder=" " id="noTelepon" size="40" required/></td>
+                            <td><label>No.Telpon</label></td>
+                            <td><input type="text" placeholder=" " id="noTelepon" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="nik">NIK</label></td>
-                            <td><input type="text" placeholder=" " id="nik" size="40" required/></td>
+                            <td><label>NIK</label></td>
+                            <td><input type="text" placeholder=" " id="nik" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="alamat">Alamat</label></td>
-                            <td><input type="text" placeholder=" " id="alamat" size="40" required/></td>
+                            <td><label>Alamat</label></td>
+                            <td><input type="text" placeholder=" " id="alamat" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="metodePembayaran">Metode Pembayaran</label></td>
-                            <td><input type="text" placeholder=" " id="metodePembayaran" size="40" required/></td>
+                            <td><label>Metode Pembayaran</label></td>
+                            <td><input type="text" placeholder=" " id="metodePembayaran" size="40" disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="noRekening">No.Rekening</label></td>
-                            <td><input type="text" placeholder=" " id="noRekening" size="40" required/></td>
+                            <td><label>No.Rekening</label></td>
+                            <td><input type="text" placeholder=" " id="noRekening" size="40" disabled></td>
                         </tr><br>
 
                         <tr>
@@ -144,7 +145,7 @@
             </div>
         </div>
 
-        
+
         <!-- Contact -->
         <div class="w3-container">
             <h2>Contact</h2>
@@ -179,37 +180,63 @@
 
     <script>
         function loadDoc() {
-                var xmlhttp = new XMLHttpRequest();
-                var url = "http://202.94.83.190:8080/165314024_ServiceRS/webresources/cariTiket";
-
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        myFunction(this.responseText);
-                    }
+            var url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/cariJadwal1?kodeJadwal=" + getCookie("username");
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var objj = JSON.parse(this.responseText);
+//                    alert();
+                    document.getElementById("terminalAsal").value = objj[0].terminalAsal;
+                    document.getElementById("terminalTujuan").value = objj[0].terminalTujuan;
+                    document.getElementById("tanggalBerangkat").value = objj[0].tanggalBerangkat;
+                    document.getElementById("tanggalSampai").value = objj[0].tanggalSampai;
+                    document.getElementById("jamBerangkat").value = objj[0].jamBerangkat;
+                    document.getElementById("jamSampai").value = objj[0].jamSampai;
+                    document.getElementById("nomorBus").value = objj[0].nomorBus;
+                    document.getElementById("hargaTiket").value = objj[0].hargaTiket;
                 }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
+            };
+        }
 
-                function myFunction(response) {
-                    var arr = JSON.parse(response);
-                    var i;
-                    var out = "<table align='center' style='width:60%;' border='1'><tr><td>ID Klinik</td><td>Nama Klinik</td><td>Spesialisasi Klinik</td></tr>";
+        function loadDoc1() {
+            var url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket/cariTiket?kodeTiket=" + getCookie("nik");
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var objj = JSON.parse(this.responseText);
+//                    alert(this.responseText);
+                    document.getElementById("noKursi").value = objj[0].noKursi;
+                    document.getElementById("namaCalonPenumpang").value = objj[0].namaCalonPenumpang;
+                    document.getElementById("umur").value = objj[0].umur;
+                    document.getElementById("email").value = objj[0].email;
+                    document.getElementById("noTelepon").value = objj[0].noTelepon;
+                    document.getElementById("nik").value = objj[0].nik;
+                    document.getElementById("alamat").value = objj[0].alamat;
+                    document.getElementById("metodePembayaran").value = objj[0].metodePembayaran;
+                    document.getElementById("noRekening").value = objj[0].noRekening;
+                }
+            };
+        }
 
-                    for (i = 0; i < arr.length; i++) {
-                        out += "<tr><td>" +
-                                arr[i].idKlinik +
-                                "</td><td>" +
-                                arr[i].nama +
-                                "</td><td>" +
-                                arr[i].spesialis +
-                                "</td><td>"
-
-                    }
-                    out += "</table>";
-                    document.getElementById("id01").innerHTML = out;
-
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
                 }
             }
+            return "";
+        }
     </script>
 
 </body>
