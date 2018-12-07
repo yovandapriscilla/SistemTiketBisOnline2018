@@ -15,7 +15,6 @@
 
         <!-- Navigation Bar -->
         <div class="w3-bar w3-white w3-border-bottom w3-xlarge" style="margin-right: 24%">
-            <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Logo</b></a>
             <p align="right">
                 <a class="navbar-brand" href=index.html style="text-decoration: none">
                     Pencarian Jadwal &nbsp &nbsp<font color = "black"></font></a>
@@ -103,7 +102,7 @@
 
                         <tr>
                             <td> </td>
-                            <td><p align="right"><button id="save" type="submit" class="signup">Accept</button></p></td>
+                            <td><p align="right"><button id="save" type="submit" class="signup" onclick="terima()">Accept</button></p></td>
                         </tr>
                     </table>
                 </div>
@@ -236,6 +235,10 @@
                 }
             }
             return "";
+        }
+        
+        function terima(){
+            alert("Pemesanan Berhasil");
         }
     </script>
 
