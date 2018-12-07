@@ -101,4 +101,11 @@ public class JadwalResource {
                 .entity(json)
                 .build();
     }
+    
+    @GET
+    @Path("cariJadwal1")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getJson(@QueryParam("kodeJadwal") String kodeJadwal) {
+        return new Gson().toJson(new JadwalHelper().cariJadwal(kodeJadwal));
+    }
 }

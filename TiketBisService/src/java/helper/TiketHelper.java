@@ -46,12 +46,12 @@ public class TiketHelper {
     }
 
     public List<Tiket> cari(
-            String kodeJadwal) {
+            String kodeTiket) {
         Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        String query = "from Tiket t where t.kodeJadwal=:kodeJadwal";
+        String query = "from Tiket t where t.kodeTiket=:kodeTiket";
         Query q = session.createQuery(query);
-        q.setParameter("kodeJadwal", kodeJadwal);
+        q.setParameter("kodeTiket", kodeTiket);
         List<Tiket> list = q.list();
         tx.commit();
         session.close();

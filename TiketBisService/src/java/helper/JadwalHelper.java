@@ -73,4 +73,21 @@ public class JadwalHelper {
             return null;
         }
     }
+    
+    public List<Jadwal> cariJadwal(
+            String kodeJadwal) {
+        Session session = TiketBisHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String query = "from Jadwal t where t.kodeJadwal=:kodeJadwal";
+        Query q = session.createQuery(query);
+        q.setParameter("kodeJadwal", kodeJadwal);
+        List<Jadwal> list = q.list();
+        tx.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
 }

@@ -84,8 +84,8 @@ public class TiketResource {
     @GET
     @Path("cariTiket")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson(@QueryParam("kodeJadwal") String kodeJadwal) {
-        return new Gson().toJson(new TiketHelper().cari(kodeJadwal));
+    public String getJson(@QueryParam("kodeTiket") String kodeTiket) {
+        return new Gson().toJson(new TiketHelper().cari(kodeTiket));
     }
 
 }
