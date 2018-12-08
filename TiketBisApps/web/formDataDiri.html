@@ -176,18 +176,21 @@
         
         function make_json(form) {
             var json = {
+                "kodeTiket": form.nik.value,
                 "kodeJadwal": form.jadwal.value,
                 "noKursi": form.kursi.value,
                 "namaCalonPenumpang": form.namaCalonPenumpang.value,
                 "umur": form.umur.value,
                 "email": form.email.value,
+                "noTelepon": form.nomorTelpon.value,
                 "nik": form.nik.value,
                 "alamat": form.alamat.value,
+                "statusTiket": "On Proses",
                 "metodePembayaran": form.rekening.value,
-                "noRekening": form.rekening.value
+                "noRekening": form.noRek.value
             };
             var html = JSON.stringify(json, 0, 100);
-            var Url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/addJadwal";
+            var Url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket/addTiket";
             var xhr = new XMLHttpRequest();
             xhr.open('POST', Url, false);
             xhr.setRequestHeader("Content-type", "application/json");
