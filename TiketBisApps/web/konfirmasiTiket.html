@@ -178,29 +178,38 @@
     </footer>
 
     <script>
-        function make_json(form) {
-            var json = {
-                "kodeJadwal": form.kodeJadwal.value,
-                "tanggalBerangkat": form.tanggalBerangkat.value,
-                "tanggalSampai": form.tanggalSampai.value,
-                "jamBerangkat": form.jamBerangkat.value,
-                "jamSampai": form.jamSampai.value,
-                "nomorBus": form.nomorBus.value,
-                "terminalAsal": form.terminalAsal.value,
-                "terminalTujuan": form.terminalTujuanvalue,
-                "hargaTiket": form.hargaTiket.value,
-                "jumlahKursi": form.jumlahKursi.value
-            };
-            var html = JSON.stringify(json, 0, 100);
+        function loadDoc() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/165314024_ServiceRS/webresources/cariTiket";
 
-            var Url = "http://202.94.83.190:8080/TiketBisService/webresources/jadwal/addJadwal";
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', Url, false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(html);
-            document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
-            return false;
-        }
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table align='center' style='width:60%;' border='1'><tr><td>ID Klinik</td><td>Nama Klinik</td><td>Spesialisasi Klinik</td></tr>";
+
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].idKlinik +
+                                "</td><td>" +
+                                arr[i].nama +
+                                "</td><td>" +
+                                arr[i].spesialis +
+                                "</td><td>"
+
+                    }
+                    out += "</table>";
+                    document.getElementById("id01").innerHTML = out;
+
+                }
+            }
     </script>
 
 </body>
