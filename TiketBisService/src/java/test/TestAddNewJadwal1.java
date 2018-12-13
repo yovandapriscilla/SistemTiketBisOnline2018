@@ -20,20 +20,20 @@ public class TestAddNewJadwal1 {
 
     public static void main(String[] args) throws ParseException {
         try {
-            String kodeJadwal = "GS003";
+            String kodeJadwal = "JS022";
             SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMdd");
-            String tglBerangkat = "20181201";
+            String tglBerangkat = "20181205";
             Date date1 = format1.parse(tglBerangkat);
-            String tglSampai = "20181201";
+            String tglSampai = "20181205";
             Date date2 = format1.parse(tglSampai);
-            String jamBerangkat = "09:00";
-            String jamSampai = "13:00";
-            String noBus = "G01";
-            String terminalAsal = "Giwangan";
+            String jamBerangkat = "10:00";
+            String jamSampai = "15:00";
+            String noBus = "J23";
+            String terminalAsal = "Jombor";
             String terminalTujuan = "Solo";
-            String hargaTiket = "35000";
+            String hargaTiket = "50000";
             String kotaAsal = "Jogjakarta";
-            String kotaTujuan = "Solo";
+            String kotaTujuan = "Semarang";
             JadwalHelper helper = new JadwalHelper();
             helper.addNewJadwal(kodeJadwal, date1, date2, jamBerangkat, jamSampai, noBus, 
                     terminalAsal, terminalTujuan, hargaTiket, kotaAsal, kotaTujuan);

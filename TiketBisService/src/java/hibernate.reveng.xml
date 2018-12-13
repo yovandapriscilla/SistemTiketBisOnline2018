@@ -41,6 +41,6 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="db165314026"/>
-  <table-filter match-name="Tiket"/>
   <table-filter match-name="Jadwal"/>
+  <table-filter match-name="Tiket"/>
 </hibernate-reverse-engineering>
