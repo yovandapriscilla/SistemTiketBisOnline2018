@@ -27,256 +27,240 @@
             </p>
         </div>
 
-        <!-- Header -->
-        <header class="w3-display-container w3-content w3-hide-small" style="max-width:1400px">
+        <div class="w3-content">
+            <form onsubmit="make_json(this)" method="POST">
+                <table>
+                    <tr>
+                        <td>Kode Jadwal</td>
+                        <td><input type="text" id="jadwal" disabled></td>
 
-        </header>
-        <form onsubmit="make_json(this)" method="POST">
-            <table>
-                <tr>
-                    <td>Kode Jadwal</td>
-                    <td><input type="text" id="jadwal" disabled></td>
-
-                </tr>
-                <tr><td>Nomor Kursi</td><td>
-                        <select id="kursi">
-                            <option style="color: black" label="">--pilih kursi--</option>
-                            <option style="color: black" value="1">1</option>
-                            <option style="color: black" value="2">2</option>
-                            <option style="color: black" value="3">3</option>
-                            <option style="color: black" value="4">4</option>
-                            <option style="color: black" value="5">5</option>
-                            <option style="color: black" value="6">6</option>
-                            <option style="color: black" value="7">7</option>
-                            <option style="color: black" value="8">8</option>
-                            <option style="color: black" value="9">9</option>
-                            <option style="color: black" value="10">10</option>
-                            <option style="color: black" value="11">11</option>
-                            <option style="color: black" value="12">12</option>
-                            <option style="color: black" value="13">13</option>
-                            <option style="color: black" value="14">14</option>
-                            <option style="color: black" value="15">15</option>
-                            <option style="color: black" value="16">16</option>
-                            <option style="color: black" value="17">17</option>
-                            <option style="color: black" value="18">18</option>
-                            <option style="color: black" value="19">19</option>
-                            <option style="color: black" value="20">20</option>
-                            <option style="color: black" value="21">21</option>
-                            <option style="color: black" value="22">22</option>
-                            <option style="color: black" value="23">23</option>
-                            <option style="color: black" value="24">24</option>
-                        </select>
-                    </td></tr>
-                <h1> Data Diri </h1>
-                <tr>
-                    <td>Nama Penumpang</td>
-                    <td><input type="text" placeholder="Enter Nama Penumpang" id="namaCalonPenumpang" size="40" required></td>
-                </tr>
-                <tr>
-                    <td>Umur</td>
-                    <td> <input type="text" placeholder="Enter Umur" id="umur" size="40" required></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td><input type="text" placeholder="Enter Email" id="email" size="40" required></td>
-                </tr>
-                <tr>
-                    <td>No. Telepon</td>
-                    <td><input type="text" placeholder="Enter Nomor Telpon" id="nomorTelpon" size="40" required></td>
-                </tr>
-                <tr>
-                    <td>NIK</td>
-                    <td><input type="text" placeholder="Enter NIK" id="nik" size="40" required></td>
-                </tr>
-                <tr>
-                    <td>Alamat</td>
-                    <td><input type="text" placeholder="Enter Alamat" id="alamat" size="40" required></td>
-                </tr>
-                <tr><td>Metode Pembayaran</td><td>
-                        <select id="rekening" onchange="cekRek(this)">
-                            <option style="color: black" value="" ></option>
-                            <option style="color: black" value="BCA" >BCA</option>
-                            <option style="color: black" value="MANDIRI">MANDIRI</option>
-                            <option style="color: black" value="BNI">BNI</option>
-                        </select>
-                    </td></tr>
-                <tr>
-                    <td>Nomor Rekening</td>
-                    <td><input type="text" id="noRek" disabled></td>
-                </tr>
-                <br>
-                <tr>
-                    <td> </td>
-                    <td><p align="right"><button id="save" type="submit" class="signup">Beli</button></p></td>
-                </tr>
-            </table>
-        </form>
-        <pre id="berhasil">
-        </pre>
-    </div>
-
-    <!-- Page content -->
-    <div class="w3-content" style="max-width:1100px;">
-
-        <!-- Good offers -->
-        <div class="w3-container w3-margin-top">
-            <h3>Bus Kami</h3>
-        </div>
-        <div class="w3-row-padding w3-text-white w3-large">
-            <div class="w3-half w3-margin-bottom">
-                <div class="w3-display-container">
-                    <img src="bus_1.jpg" alt="Cinque Terre" style="width:100%">
-                    <span class="w3-display-bottomleft w3-padding"></span>
-                </div>
-            </div>
-            <div class="w3-half">
-                <div class="w3-row-padding" style="margin:0 -16px">
-                    <div class="w3-half w3-margin-bottom">
-                        <div class="w3-display-container">
-                            <img src="bus_2.jpg" alt="New York" style="width:100%">
-                            <span class="w3-display-bottomleft w3-padding"></span>
-                        </div>
-                    </div>
-                    <div class="w3-half w3-margin-bottom">
-                        <div class="w3-display-container">
-                            <img src="bus_3.png" alt="San Francisco" style="width:100%">
-                            <span class="w3-display-bottomleft w3-padding"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact -->
-        <div class="w3-container">
-            <h2>Contact</h2>
-            <p>Let us book your next trip!</p>
-            <i class="fa fa-map-marker" style="width:30px"></i> Yogyakarta<br>
-            <i class="fa fa-phone" style="width:30px"></i> Phone: 087775612093<br>
-            <i class="fa fa-envelope" style="width:30px"> </i> Email: blackbus@gmail.com<br>
-            <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-                <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+                    </tr>
+                    <tr><td>Nomor Kursi</td><td>
+                            <select id="kursi">
+                                <option style="color: black" value="1">1</option>
+                                <option style="color: black" value="2">2</option>
+                                <option style="color: black" value="3">3</option>
+                                <option style="color: black" value="4">4</option>
+                                <option style="color: black" value="5">5</option>
+                                <option style="color: black" value="6">6</option>
+                                <option style="color: black" value="7">7</option>
+                                <option style="color: black" value="8">8</option>
+                                <option style="color: black" value="9">9</option>
+                                <option style="color: black" value="10">10</option>
+                                <option style="color: black" value="11">11</option>
+                                <option style="color: black" value="12">12</option>
+                                <option style="color: black" value="13">13</option>
+                                <option style="color: black" value="14">14</option>
+                                <option style="color: black" value="15">15</option>
+                                <option style="color: black" value="16">16</option>
+                                <option style="color: black" value="17">17</option>
+                                <option style="color: black" value="18">18</option>
+                                <option style="color: black" value="19">19</option>
+                                <option style="color: black" value="20">20</option>
+                                <option style="color: black" value="21">21</option>
+                                <option style="color: black" value="22">22</option>
+                                <option style="color: black" value="23">23</option>
+                                <option style="color: black" value="24">24</option>
+                            </select>
+                        </td></tr>
+                    <h1> Data Diri </h1>
+                    <tr>
+                        <td>Nama Penumpang</td>
+                        <td><input type="text" placeholder="Enter Nama Penumpang" id="namaCalonPenumpang" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td> <input type="text" placeholder="Enter Umur" id="umur" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" placeholder="Enter Email" id="email" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>No. Telepon</td>
+                        <td><input type="text" placeholder="Enter Nomor Telpon" id="nomorTelpon" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>NIK</td>
+                        <td><input type="text" placeholder="Enter NIK" id="nik" size="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td><input type="text" placeholder="Enter Alamat" id="alamat" size="40" required></td>
+                    </tr>
+                    <tr><td>Metode Pembayaran</td><td>
+                            <select id="rekening" onchange="cekRek(this)">
+                                <option style="color: black" value="BCA" >BCA</option>
+                                <option style="color: black" value="MANDIRI">MANDIRI</option>
+                                <option style="color: black" value="BNI">BNI</option>
+                            </select>
+                        </td></tr>
+                    <tr>
+                        <td>Nomor Rekening</td>
+                        <td><input type="text" id="noRek" value="123456789" disabled></td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td><p align="right"><button id="save" type="submit" class="signup">Beli</button></p></td>
+                    </tr>
+                </table>
             </form>
+            <pre id="berhasil">
+            </pre>
         </div>
 
-        <!-- End page content -->
-    </div>
+        <!-- Page content -->
+        <div class="w3-content" style="max-width:1100px;">
 
-    <!-- Footer -->
-    <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
-        <h5>Find Us On</h5>
-        <div class="w3-xlarge w3-padding-16">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-            <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <!-- Good offers -->
+            <div class="w3-container w3-margin-top">
+                <h3>Bus Kami</h3>
+            </div>
+            <div class="w3-row-padding w3-text-white w3-large">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <img src="bus_1.jpg" alt="Cinque Terre" style="width:100%">
+                        <span class="w3-display-bottomleft w3-padding"></span>
+                    </div>
+                </div>
+                <div class="w3-half">
+                    <div class="w3-row-padding" style="margin:0 -16px">
+                        <div class="w3-half w3-margin-bottom">
+                            <div class="w3-display-container">
+                                <img src="bus_2.jpg" alt="New York" style="width:100%">
+                                <span class="w3-display-bottomleft w3-padding"></span>
+                            </div>
+                        </div>
+                        <div class="w3-half w3-margin-bottom">
+                            <div class="w3-display-container">
+                                <img src="bus_3.png" alt="San Francisco" style="width:100%">
+                                <span class="w3-display-bottomleft w3-padding"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="w3-container">
+                <h2>Contact</h2>
+                <p>Let us book your next trip!</p>
+                <i class="fa fa-map-marker" style="width:30px"></i> Yogyakarta<br>
+                <i class="fa fa-phone" style="width:30px"></i> Phone: 087775612093<br>
+                <i class="fa fa-envelope" style="width:30px"> </i> Email: blackbus@gmail.com<br>
+                <form action="/action_page.php" target="_blank">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+                    <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+                </form>
+            </div>
+
+            <!-- End page content -->
         </div>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Black Bus</a></p>
-    </footer>
 
-    <script>
-        var xmlhttp = new XMLHttpRequest();
-        var url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket";
+        <!-- Footer -->
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+            <h5>Find Us On</h5>
+            <div class="w3-xlarge w3-padding-16">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Black Bus</a></p>
+        </footer>
 
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var arr = JSON.parse(this.responseText);
-                for (i = 0; i < arr.length; i++) {
-                    if (arr[i].kodeJadwal === (jadwal.value)) {
-                        var op = document.getElementById("kursi").getElementsByTagName("option");
-                        op[arr[i].noKursi].disabled = true;
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket";
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var arr = JSON.parse(this.responseText);
+                    for (i = 0; i < arr.length; i++) {
+                        if (arr[i].kodeJadwal === (jadwal.value)) {
+//                            alert(arr[i].noKursi);
+                            var op = document.getElementById("kursi").getElementsByTagName("option");
+                            op[arr[i].noKursi-1].disabled = true;
+                        }
                     }
                 }
             }
-        }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
 
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-
-
-
-        function make_json(form) {
-            var json = {
-                "kodeTiket": form.nik.value,
-                "kodeJadwal": form.jadwal.value,
-                "noKursi": form.kursi.value,
-                "namaCalonPenumpang": form.namaCalonPenumpang.value,
-                "umur": form.umur.value,
-                "email": form.email.value,
-                "noTelepon": form.nomorTelpon.value,
-                "nik": form.nik.value,
-                "alamat": form.alamat.value,
-                "statusTiket": "On Proses",
-                "metodePembayaran": form.rekening.value,
-                "noRekening": form.noRek.value
-            };
-            var html = JSON.stringify(json, 0, 100);
-            var Url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket/addTiket";
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', Url, false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            myFunction1(form.nik.value);
-            xhr.send(html);
-            document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
-            return false;
-        }
-
-
-
-        function cekRek(rekening) {
-            if (rekening.value === "BCA") {
-                document.getElementById("noRek").value = 123456789;
-            } else if (rekening.value === "BNI") {
-                document.getElementById("noRek").value = 234567890;
-            } else if (rekening.value === "MANDIRI") {
-                document.getElementById("noRek").value = 345678901;
-            } else if (rekening.value == "") {
-                alert("pilih metode pembayaran");
+            function make_json(form) {
+                var json = {
+                    "kodeTiket": form.nik.value,
+                    "kodeJadwal": form.jadwal.value,
+                    "noKursi": form.kursi.value,
+                    "namaCalonPenumpang": form.namaCalonPenumpang.value,
+                    "umur": form.umur.value,
+                    "email": form.email.value,
+                    "noTelepon": form.nomorTelpon.value,
+                    "nik": form.nik.value,
+                    "alamat": form.alamat.value,
+                    "statusTiket": "On Proses",
+                    "metodePembayaran": form.rekening.value,
+                    "noRekening": form.noRek.value
+                };
+                var html = JSON.stringify(json, 0, 100);
+                var Url = "http://202.94.83.190:8080/TiketBisService/webresources/tiket/addTiket";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);
+                myFunction1(form.nik.value);
+//                document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
+                return false;
             }
 
-        }
-
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+            function cekRek(rekening) {
+                if (rekening.value === "BCA") {
+                    document.getElementById("noRek").value = 123456789;
+                } else if (rekening.value === "BNI") {
+                    document.getElementById("noRek").value = 234567890;
+                } else if (rekening.value === "MANDIRI") {
+                    document.getElementById("noRek").value = 345678901;
+                } else if (rekening.value == "") {
+                    alert("pilih metode pembayaran");
                 }
             }
-            return "";
-        }
-
-        function checkCookie() {
-            var username = getCookie("username");
-            if (username != "") {
-                document.getElementById("jadwal").value = username;
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
             }
-        }
+            function checkCookie() {
+                var username = getCookie("username");
+                if (username != "") {
+                    document.getElementById("jadwal").value = username;
+                }
+            }
+            function myFunction1(nik) {
+    //                alert(nik);
+                var myWindow = window.open("konfirmasiTiket.html");
+                setCookie("nik", nik, 1);
+            }
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+        </script>
 
-        function myFunction1(nik) {
-//                alert(nik);
-            var myWindow = window.open("konfirmasiTiket.html", "_self");
-            setCookie("nik", nik, 1);
-        }
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-
-    </script>
-
-</body>
+    </body>
 </html>
